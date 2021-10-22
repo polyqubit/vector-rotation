@@ -10,22 +10,22 @@ public class starter implements InputControl, InputKeyControl {
 		KeyController kC = new KeyController(Canvas.getInstance(),new starter());
 		MouseController mC = new MouseController(Canvas.getInstance(),new starter());
 		
-		double pointX = 300;
-		double pointY = 20;
+		double pointX = 400;
+		double pointY = 50;
 		double tempX,tempY;
 		double angle = 1;
-		vector = new Line(300,300, pointX,pointY);
+		vector = new Line(400,300, pointX,pointY);
 		vector.draw();
-		Ellipse origin = new Ellipse(290,290, 20,20);
+		Ellipse origin = new Ellipse(390,290, 20,20);
 		Color oC = new Color(255,0,0);
 		origin.setColor(oC);
 		origin.fill();
 		while(true) {
-			tempX = (pointX * Math.cos(angle)) - (pointY * Math.sin(angle));
+			tempX = (pointX * Math.cos(angle)) - (pointY * Math.sin(angle))+400;
 			tempY = (pointX * Math.sin(angle)) + (pointY * Math.cos(angle));
 			pointX = tempX;
 			pointY = tempY;
-			vector = new Line(300,300, pointX,pointY);
+			vector = new Line(400,50, pointX,pointY);
 			vector.draw();
 			Canvas.pause(10);
 		}
