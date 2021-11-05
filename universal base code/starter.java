@@ -2,16 +2,23 @@ import pkg.*;
 import java.util.ArrayList;
 import java.lang.Math;
 import java.util.Random;
+import java.util.Scanner;
 
 public class starter implements InputControl, InputKeyControl {
 	static Line vector;
-	static Rectangle rectRotate;
+	static Ellipse eRot;
 	
 	public static void main(String args[]) {
 		// please leave following line alone, necessary for keyboard/mouse input
 		KeyController kC = new KeyController(Canvas.getInstance(),new starter());
 		MouseController mC = new MouseController(Canvas.getInstance(),new starter());
 		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter mode(circle, spiral)");
+		String inp = sc.nextLine();
+		boolean tar = false;
+		if(inp.equals("circle")) {tar = true;}
 		Random rand = new Random();
 		boolean d1 = false;
 		boolean d2 = false;
@@ -27,17 +34,17 @@ public class starter implements InputControl, InputKeyControl {
 		int colorCounter2 = rand.nextInt(254);
 		int colorCounter3 = rand.nextInt(253);
 		vector = new Line(originX,originY, pointX,pointY);
-		rectRotate = new Rectangle(pointX,pointY, 10,10);
-		vector.draw();
-		rectRotate.draw();
-		Ellipse origin = new Ellipse(originX-10,originY-10, 20,20);
+		eRot = new Ellipse(pointX-5,pointY-5, 10,10);
+		//vector.draw();
+		eRot.draw();
+		//Ellipse origin = new Ellipse(originX-10,originY-10, 20,20);
 		Color oC = new Color(255,0,0);
-		origin.setColor(oC);
-		origin.fill();
+		//origin.setColor(oC);
+		//origin.fill();
 		for(int i=0;i>=0;i++) {
-			useless = i/2;
+			useless = i/25;
 			if(!d1) {colorCounter1++;}
-			if(!d2) {colorCounter2++;}       
+			if(!d2) {colorCounter2+=2;}       
 			if(!d3) {colorCounter3++;}
 			
 			if(colorCounter1>254) {colorCounter1 = 254;d1=true;}
@@ -57,12 +64,18 @@ public class starter implements InputControl, InputKeyControl {
 			pointX = tempX;
 			pointY = tempY;
 			oC = new Color(colorCounter1,colorCounter2,colorCounter3);
-			vector.setCoordB(pointX+useless,pointY+useless);
-			rectRotate = new Rectangle(pointX+useless,pointY+useless, 20,20);
-			rectRotate.setColor(oC);
-			vector.draw();
-			rectRotate.fill();
-			Canvas.pause(10);
+			if(tar) {
+				//vector.setCoordB(pointX,pointY);
+				eRot = new Ellipse(pointX-5,pointY-5, 20,20);
+			}
+			else {
+				//vector.setCoordB(pointX+useless,pointY+useless);
+				eRot = new Ellipse(pointX+useless-5,pointY+useless-5, 20,20);
+			}
+			eRot.setColor(oC);
+			//vector.draw();
+			eRot.fill();
+			Canvas.pause(5);
 		}
 	}
 
