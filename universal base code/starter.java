@@ -1,6 +1,7 @@
 import pkg.*;
 import java.util.ArrayList;
 import java.lang.Math;
+import java.util.Random;
 
 public class starter implements InputControl, InputKeyControl {
 	static Line vector;
@@ -11,14 +12,16 @@ public class starter implements InputControl, InputKeyControl {
 		KeyController kC = new KeyController(Canvas.getInstance(),new starter());
 		MouseController mC = new MouseController(Canvas.getInstance(),new starter());
 		
-		double pointX = 400;
-		double pointY = 200;
-		double originX = 150;
-		double originY = 150;
+		Random rand = new Random();
+		double pointX = 100;
+		double pointY = 150;
+		double originX = pointX;
+		double originY = 100;
 		double tempX,tempY;
 		double angle = 0.1;
+		double useless;
 		int colorCounter1 = 0;
-		int colorCounter2 = 50;
+		int colorCounter2 = 150;
 		int colorCounter3 = 100;
 		vector = new Line(originX,originY, pointX,pointY);
 		rectRotate = new Rectangle(pointX,pointY, 10,10);
@@ -29,9 +32,10 @@ public class starter implements InputControl, InputKeyControl {
 		origin.setColor(oC);
 		origin.fill();
 		for(int i=0;i<500;i++) {
-			colorCounter1++;
-			colorCounter2++;
-			colorCounter3++;
+			useless = i/2;
+			colorCounter1 += rand.nextInt(5)+1;
+			colorCounter2 += rand.nextInt(5)+1;
+			colorCounter3 += rand.nextInt(5)+1;
 			if(colorCounter1>254) {colorCounter1 = 0;}
 			if(colorCounter2>254) {colorCounter2 = 0;}
 			if(colorCounter3>254) {colorCounter3 = 0;}
@@ -40,8 +44,8 @@ public class starter implements InputControl, InputKeyControl {
 			pointX = tempX;
 			pointY = tempY;
 			oC = new Color(colorCounter1,colorCounter2,colorCounter3);
-			vector.setCoordB(pointX+i,pointY+i);
-			rectRotate = new Rectangle(pointX+i,pointY+i, 20,20);
+			vector.setCoordB(pointX+useless,pointY+useless);
+			rectRotate = new Rectangle(pointX+useless,pointY+useless, 20,20);
 			rectRotate.setColor(oC);
 			vector.draw();
 			rectRotate.fill();
