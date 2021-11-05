@@ -70,8 +70,8 @@ public class Canvas
                 maxx = (int) Math.max(maxx, s.getX() + s.getWidth());
                 maxy = (int) Math.max(maxy, s.getY() + s.getHeight());
             }
-			// changed by Neato to make Canvas the same size (600 x 600)
-			return new Dimension(600,600);
+			// changed by Neato to make Canvas the same size (800 x 800)
+			return new Dimension(800,800);
             //return new Dimension(maxx + MARGIN, maxy + MARGIN);
         }
     }
