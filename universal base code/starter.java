@@ -21,11 +21,11 @@ public class starter implements InputControl, InputKeyControl {
 		origin.setColor(oC);
 		origin.fill();
 		while(true) {
-			tempX = (pointX * Math.cos(angle)) - (pointY * Math.sin(angle))+400;
-			tempY = (pointX * Math.sin(angle)) + (pointY * Math.cos(angle));
+			tempX = ((pointX-400) * Math.cos(angle)) - ((pointY-300) * Math.sin(angle))+400;
+			tempY = ((pointX-400) * Math.sin(angle)) + ((pointY-300) * Math.cos(angle))+300;
 			pointX = tempX;
 			pointY = tempY;
-			vector = new Line(400,50, pointX,pointY);
+			vector = new Line(400,300, pointX,pointY);
 			vector.draw();
 			Canvas.pause(10);
 		}
