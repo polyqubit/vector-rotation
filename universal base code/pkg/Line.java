@@ -61,6 +61,15 @@ public class Line implements Shape
     {
         return (int) Math.round(Math.abs(y2 - y1));
     }
+	
+	public void setCoordA(double x, double y) {
+		x1 = x;
+		y1 = y;
+	}
+	public void setCoordB(double x, double y) {
+		x2 = x;
+		y2 = y;
+	}
 
     /**
      * Moves this line by a given amount.

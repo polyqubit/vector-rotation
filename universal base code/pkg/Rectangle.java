@@ -73,6 +73,14 @@ public class Rectangle implements Shape
     {
         return (int) Math.round(height);
     }
+	
+	/**
+	   Sets position of rectangle
+	*/
+	public void setPos(double x, double y) {
+		this.x = x;
+		this.y = y;
+	}
 
     /**
        Moves this rectangle by a given amount.
