@@ -12,20 +12,22 @@ public class starter implements InputControl, InputKeyControl {
 		
 		double pointX = 400;
 		double pointY = 50;
+		double originX = 300;
+		double originY = 250;
 		double tempX,tempY;
 		double angle = 1;
-		vector = new Line(400,300, pointX,pointY);
+		vector = new Line(originX,originY, pointX,pointY);
 		vector.draw();
-		Ellipse origin = new Ellipse(390,290, 20,20);
+		Ellipse origin = new Ellipse(originX-10,originY-10, 20,20);
 		Color oC = new Color(255,0,0);
 		origin.setColor(oC);
 		origin.fill();
 		while(true) {
-			tempX = ((pointX-400) * Math.cos(angle)) - ((pointY-300) * Math.sin(angle))+400;
-			tempY = ((pointX-400) * Math.sin(angle)) + ((pointY-300) * Math.cos(angle))+300;
+			tempX = ((pointX-originX) * Math.cos(angle)) - ((pointY-originY) * Math.sin(angle))+originX;
+			tempY = ((pointX-originX) * Math.sin(angle)) + ((pointY-originY) * Math.cos(angle))+originY;
 			pointX = tempX;
 			pointY = tempY;
-			vector = new Line(400,300, pointX,pointY);
+			vector = new Line(originX,originY, pointX,pointY);
 			vector.draw();
 			Canvas.pause(10);
 		}
