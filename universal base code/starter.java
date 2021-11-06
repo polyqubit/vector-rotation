@@ -40,7 +40,7 @@ public class starter implements InputControl, InputKeyControl {
 		int colorCounter3 = rand.nextInt(253);
 		vector = new Line(originX,originY, pointX,pointY);
 		eRot = new Ellipse(pointX-5,pointY-5, 10,10);
-		vector.draw();
+		///svector.draw();
 		eRot.draw();
 		//Ellipse origin = new Ellipse(originX-10,originY-10, 20,20);
 		Color oC = new Color(255,0,0);
@@ -51,8 +51,8 @@ public class starter implements InputControl, InputKeyControl {
 		for(int i=0;i<constant;i++) {
 			lA[i] = new Line(originX,originY, pointX,pointY);
 			lA[i].draw();
-			Canvas.pause(20);
 		}
+		Canvas.pause(500);
 		for(int i=0;i>=0;i++) {
 			useless = i/spacing;
 			if(!d1) {colorCounter1++;}
@@ -86,9 +86,8 @@ public class starter implements InputControl, InputKeyControl {
 				//eRot = new Ellipse(pointX-5,pointY-5, 20,20);
 			}
 			else {
-				vector.setCoordB(pointX+useless,pointY+useless);
 				for(int j=0;j<constant;j++) {
-					lA[j].setCoordA(originX+useless*2, originY+useless*2);
+					lA[j].setCoordA(pointX/2+useless, pointY/2+useless);
 					lA[j].setCoordB(pointX+useless,pointY+useless);
 					lA[j].draw();
 				}
@@ -96,7 +95,7 @@ public class starter implements InputControl, InputKeyControl {
 			}
 			eRot.setColor(oC);
 			//eRot.fill();
-			//Canvas.snapshot();
+			Canvas.snapshot();
 			Canvas.pause(in2);
 		}
 	}
