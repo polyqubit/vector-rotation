@@ -75,7 +75,7 @@ public class starter implements InputControl, InputKeyControl {
 			eRot.setColor(oC);
 			//vector.draw();
 			eRot.fill();
-			Canvas.pause(5);
+			Canvas.pause(10);
 		}
 	}
 
